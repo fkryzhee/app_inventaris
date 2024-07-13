@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-5">User Dashboard</h2>
+        <a href="index.html" class="btn btn-danger">Logout</a>
+        <div class="mt-4">
+            <h4>Barang</h4>
+            <input type="text" id="searchInput" class="form-control mb-3" placeholder="Cari Barang">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah Barang</th>
+                        <th>Status Barang</th>
+                    </tr>
+                </thead>
+                <tbody id="itemTable">
+                    <!-- Data Barang -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

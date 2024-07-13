@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.4/docx.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-5">Admin Dashboard</h2>
+        <a href="index.html" class="btn btn-danger">Logout</a>
+        
+        <div class="mt-4">
+            <h4>Barang</h4>
+            <button id="addItemBtn" class="btn btn-success mb-3">Tambah Barang</button>
+            <button id="downloadPdfBtn" class="btn btn-primary mb-3">Download PDF</button>
+            <button id="downloadExcelBtn" class="btn btn-primary mb-3">Download Excel</button>
+            <button id="downloadWordBtn" class="btn btn-primary mb-3">Download Word</button>
+            <input type="text" id="searchInput" class="form-control mb-3" placeholder="Cari Barang">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Jumlah Barang</th>
+                        <th>Status Barang</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="itemTable">
+                    <!-- Data Barang -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal Edit/Add Barang -->
+<div id="addItemModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modalTitle" class="modal-title">Tambah Barang</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addItemForm">
+                    <div class="form-group">
+                        <label for="kodeBarang">Kode Barang</label>
+                        <input type="text" class="form-control" id="kodeBarang" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="namaBarang">Nama Barang</label>
+                        <input type="text" class="form-control" id="namaBarang" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlahBarang">Jumlah Barang</label>
+                        <input type="number" class="form-control" id="jumlahBarang" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="statusBarang">Status Barang</label>
+                        <select class="form-control" id="statusBarang" required>
+                            <option value="utuh">Utuh</option>
+                            <option value="rusak">Rusak</option>
+                            <option value="hilang">Hilang</option>
+                        </select>
+                    </div>
+                    <input type="hidden" id="editIndex">
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Tambah</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Konfirmasi Hapus -->
+<div id="deleteConfirmModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus barang ini?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Hapus</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
