@@ -42,17 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", function () {
-            localStorage.removeItem("user");
-            window.location.href = "index.html";
-        });
-    }
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-        window.location.href = "index.html";
-    }
 
     function populateTable() {
         if (!itemTable) return;
